@@ -1,9 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  form(action='/users', method='post')
-      input(id='firstN', type="text", name="firstN")
-      input(id='secondN', type='text', name="secondN")
-      input(type="submit", value="submit")
+    p(style= "width:300px")
+        input#slider(type="range" class= "mdl-slider mdl-js-slider" min= "0" max= "50" value= "2")
+        script.
+            slider.oninput = function () {
+                $.ajax({
+                    url: "/results",
+                    data: {"value": slider.value},
+                    dataType: "JSON",
+                    success: function (data, status, jqXHR) {
+                        textField.innerHTML = data.result
+                    }
+                });
+            };
+    h2#textField(style="width: 1000px")=title
