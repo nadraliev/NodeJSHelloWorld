@@ -60,6 +60,5 @@ typings/
 .env
 
 
-/.gitignore
-/.idea/
-!/.idea/
+.idea/inspectionProfiles/
+.idea/workspace.xml
