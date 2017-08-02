@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(action='/users', method='post')
+      input(id='firstN', type="text", name="firstN")
+      input(id='secondN', type='text', name="secondN")
+      input(type="submit", value="submit")
